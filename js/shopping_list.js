@@ -18,8 +18,8 @@ function ShoppingList(){
   };
 
   this.render = function(){
-    var renderedList = this.items.map(function(element){
-      return element.render();
+    var renderedList = this.items.map(function(element, index){
+      return element.render(index);
     });
 
     return renderedList.join('');

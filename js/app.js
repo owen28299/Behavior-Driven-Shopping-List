@@ -5,12 +5,26 @@ function add_to_shopping_list(){
   var newListItem = new ShoppingListItem(title, description);
 
   return newListItem;
-
 }
 
 function clearInputs(){
   document.getElementById('description').value = "";
   document.getElementById('title').value = "";
+}
+
+function changeCheckedStatus(idx, checkbox){
+  if(checkbox.value === "off"){
+    checkbox.value = "on";
+    myList.items[idx].check();
+  }
+  else{
+   checkbox.value = "off";
+   myList.items[idx].uncheck();
+  }
+
+  console.log('checkbox.value', checkbox.value);
+  console.log('myList.items[idx]', myList.items[idx]);
+
 }
 
 document.getElementById('add_shopping_list_item_button').addEventListener('click', function(){
@@ -24,7 +38,23 @@ document.getElementById('add_shopping_list_item_button').addEventListener('click
 
   clearInputs();
 
+  var checkboxes = document.querySelectorAll(".checkbox");
+
+  Array.prototype.forEach.call(checkboxes, function(element){
+
+    element.addEventListener("click", function(event){
+      var idx = event.target.id;
+      var checkbox = event.target;
+
+      changeCheckedStatus(idx, checkbox);
+    });
+  });
+
+
+
 });
 
 var myList = new ShoppingList();
+
+
 
