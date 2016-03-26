@@ -5,6 +5,11 @@ function ShoppingList(){
     if(!(item instanceof ShoppingListItem)){
       throw new Error("Not an Object from Shopping List Items");
     }
+
+    if(item.description === "" || item.name === "") {
+      return;
+     }
+
     this.items.push(item);
   };
 

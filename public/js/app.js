@@ -16,10 +16,12 @@ function changeCheckedStatus(idx, checkbox){
   if(checkbox.value === "off"){
     checkbox.value = "on";
     myList.items[idx].check();
+    checkbox.parentNode.parentNode.className = "completed_true";
   }
   else{
    checkbox.value = "off";
    myList.items[idx].uncheck();
+   checkbox.parentNode.parentNode.className = "completed_false";
   }
 
 }

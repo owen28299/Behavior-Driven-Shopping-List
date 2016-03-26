@@ -1,7 +1,113 @@
+@import "partials/_reset.scss";
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+//or you could have just written partials/reset
+
+//general styles
+
+//media breakpoint mixin
+$breakpoints: (
+  'medium': 500px,
+  'large':  800px
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+$primary-color: lightblue;
+
 body {
-  background-color: red;
+  background-color: $primary-color;
+
+}
+
+header {
+
+  padding: 30px;
+
 
   h1 {
+    font-family: 'Lobster';
+    text-align: center;
     color: purple;
+    border: 1px solid blue;
+    padding: 20px;
+    transition: all 1s ease;
+
+    &:hover {
+      color: darken($primary-color,50%);
+      background-color: lightblue;
+    }
+
+    @include respond-to('medium') {
+      font-size: 40px;
+    }
+
+    @include respond-to('large') {
+      font-size: 60px;
+    }
+
   }
+
+
+}
+
+form {
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+
+  &#add_shopping_list_item_button {
+    margin-left: 40%;
+  }
+}
+
+ul {
+  text-align: center;
+  max-width: 400px;
+
+}
+
+li {
+
+  // background-color: red;
+  margin: 10px;
+
+  &.completed_true {
+    background-color: lightgreen;
+  }
+
+  .list-name {
+    font-size: 20px;
+    background-color: cyan;
+  }
+
+  .list-description {
+    font-size: 20px;
+    background-color: orange;
+    display: inline-block;
+  }
+
+  .checkboxdiv {
+    padding: 5px;
+    background-color: violet;
+    display: inline-block;
+  }
+
+  .deletediv {
+    padding: 5px;
+    background-color: green;
+    display: inline-block;
+  }
+
 }
