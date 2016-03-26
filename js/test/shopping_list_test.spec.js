@@ -69,7 +69,7 @@ describe('ShoppingListItem', function(){
 
     it('should return a string', function(){
       expect(myListItem.render()).to.be.a('string');
-      expect(myListItem.render()).to.equal('<ul><li class= "completed_false"><span>cheese</span><span>buy triple cream brie</span></li></ul>');
+      expect(myListItem.render()).to.equal('<ul><li class= "completed_false"><span><b>cheese</b></span><br><span>buy triple cream brie</span></li></ul>');
     });
 
   });
@@ -193,7 +193,7 @@ describe("Shopping List", function(){
       myList.addItem(newItem2);
       myList.addItem(newItem3);
 
-      expect(myList.render()).to.equal('<ul><li class= "completed_false"><span>chocolate</span><span>2 Lindt Bunnies</span></li></ul><ul><li class= "completed_false"><span>banana</span><span>Ripe yellow ones</span></li></ul><ul><li class= "completed_false"><span>milk</span><span>coconut almond milk</span></li></ul>');
+      expect(myList.render()).to.equal('<ul><li class= "completed_false"><span><b>chocolate</b></span><br><span>2 Lindt Bunnies</span></li></ul><ul><li class= "completed_false"><span><b>banana</b></span><br><span>Ripe yellow ones</span></li></ul><ul><li class= "completed_false"><span><b>milk</b></span><br><span>coconut almond milk</span></li></ul>');
     });
 
 

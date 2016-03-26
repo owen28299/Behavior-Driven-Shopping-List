@@ -14,7 +14,7 @@ function ShoppingListItem(name, description){
   this.render = function(){
     var output = "<ul>" +
       "<li class=" + " \"completed_" + this.is_done + "\"" + ">" +
-        "<span>" + this.name + "</span>" +
+        "<span><b>" + this.name + "</b></span>" + "<br>" +
         "<span>" + this.description + "</span>" +
       "</li>" +
       "</ul>";
