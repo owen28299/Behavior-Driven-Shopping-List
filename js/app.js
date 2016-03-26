@@ -22,9 +22,18 @@ function changeCheckedStatus(idx, checkbox){
    myList.items[idx].uncheck();
   }
 
-  console.log('checkbox.value', checkbox.value);
-  console.log('myList.items[idx]', myList.items[idx]);
+}
 
+function removeItemButtonClicked(idx){
+  myList.removeItem(myList.items[idx]);
+  render();
+  addEventListeners();
+}
+
+function render(){
+  var listItems = myList.render();
+  document.getElementById('content').innerHTML = listItems;
+  clearInputs();
 }
 
 document.getElementById('add_shopping_list_item_button').addEventListener('click', function(){
@@ -32,27 +41,38 @@ document.getElementById('add_shopping_list_item_button').addEventListener('click
   var newItem = add_to_shopping_list();
   myList.addItem(newItem);
 
-  var listItems = myList.render();
+  render();
 
-  document.getElementById('content').innerHTML = listItems;
+  addEventListeners();
 
-  clearInputs();
+});
 
+function addEventListeners(){
   var checkboxes = document.querySelectorAll(".checkbox");
 
   Array.prototype.forEach.call(checkboxes, function(element){
 
     element.addEventListener("click", function(event){
-      var idx = event.target.id;
+      var idx = event.target.dataset.index;
       var checkbox = event.target;
 
       changeCheckedStatus(idx, checkbox);
     });
   });
 
+  var deleteItem = document.querySelectorAll(".delete");
+
+  Array.prototype.forEach.call(deleteItem, function(element){
+
+    element.addEventListener("click", function(event){
+      var idx = event.target.dataset.index;
+      console.log('idx', idx);
+      removeItemButtonClicked(idx);
+    });
+  });
+}
 
 
-});
 
 var myList = new ShoppingList();
 

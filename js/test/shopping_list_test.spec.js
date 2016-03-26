@@ -69,7 +69,7 @@ describe('ShoppingListItem', function(){
 
     it('should return a string', function(){
       expect(myListItem.render()).to.be.a('string');
-      expect(myListItem.render()).to.equal('<ul><li class= "completed_false"><span><b>cheese</b></span><br><span>buy triple cream brie</span><input type="checkbox" value="off" class="checkbox" id="undefined"></li></ul>');
+      expect(myListItem.render()).to.equal('<ul><li class= "completed_false"><span><b>cheese</b></span><br><span>buy triple cream brie</span><input type="checkbox" value="off" class="checkbox" data-index="undefined"><button class="delete" data-index="undefined">x</button></li></ul>');
     });
 
   });
@@ -193,7 +193,7 @@ describe("Shopping List", function(){
       myList.addItem(newItem2);
       myList.addItem(newItem3);
 
-      expect(myList.render()).to.equal('<ul><li class= "completed_false"><span><b>chocolate</b></span><br><span>2 Lindt Bunnies</span><input type="checkbox" value="off" class="checkbox" id="0"></li></ul><ul><li class= "completed_false"><span><b>banana</b></span><br><span>Ripe yellow ones</span><input type="checkbox" value="off" class="checkbox" id="1"></li></ul><ul><li class= "completed_false"><span><b>milk</b></span><br><span>coconut almond milk</span><input type="checkbox" value="off" class="checkbox" id="2"></li></ul>');
+      expect(myList.render()).to.equal('<ul><li class= "completed_false"><span><b>chocolate</b></span><br><span>2 Lindt Bunnies</span><input type="checkbox" value="off" class="checkbox" data-index="0"><button class="delete" data-index="0">x</button></li></ul><ul><li class= "completed_false"><span><b>banana</b></span><br><span>Ripe yellow ones</span><input type="checkbox" value="off" class="checkbox" data-index="1"><button class="delete" data-index="1">x</button></li></ul><ul><li class= "completed_false"><span><b>milk</b></span><br><span>coconut almond milk</span><input type="checkbox" value="off" class="checkbox" data-index="2"><button class="delete" data-index="2">x</button></li></ul>');
     });
 
 

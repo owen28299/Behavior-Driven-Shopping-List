@@ -16,7 +16,8 @@ function ShoppingListItem(name, description){
       "<li class=" + " \"completed_" + this.is_done + "\"" + ">" +
         "<span><b>" + this.name + "</b></span>" + "<br>" +
         "<span>" + this.description + "</span>" +
-        "<input type=\"checkbox\" value=\"off\" class=\"checkbox\" id=\"" + index + "\">" +
+        "<input type=\"checkbox\" value=\"off\" class=\"checkbox\" data-index=\"" + index + "\">" +
+        "<button class=\"delete\" data-index=\"" + index +"\">x</button>" +
       "</li>" +
       "</ul>";
 
