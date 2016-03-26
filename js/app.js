@@ -66,7 +66,6 @@ function addEventListeners(){
 
     element.addEventListener("click", function(event){
       var idx = event.target.dataset.index;
-      console.log('idx', idx);
       removeItemButtonClicked(idx);
     });
   });
