@@ -72,7 +72,6 @@ function addEventListeners(){
 }
 
 
-
 var myList = new ShoppingList();
 
 
