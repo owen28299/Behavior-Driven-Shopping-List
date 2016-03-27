@@ -65,33 +65,46 @@ header {
         font-size: 60px; } }
 
 form {
-  text-align: center; }
+  background-color: purple;
+  text-align: right;
+  max-width: 260px;
+  margin: auto; }
+  form .form-title {
+    background-color: green; }
+  form .form-description {
+    background-color: yellow; }
 
 button {
-  display: inline-block; }
+  display: block; }
   button#add_shopping_list_item_button {
-    margin-left: 40%; }
+    margin: auto; }
 
 ul {
   text-align: center;
-  max-width: 400px; }
+  max-width: 400px;
+  background-color: white;
+  margin: auto; }
 
 li {
-  margin: 10px; }
+  display: flex;
+  margin: 10px;
+  text-align: left; }
   li.completed_true {
     background-color: lightgreen; }
   li .list-name {
-    font-size: 20px;
-    background-color: cyan; }
+    text-transform: capitalize;
+    margin: 5px; }
   li .list-description {
-    font-size: 20px;
-    background-color: orange;
-    display: inline-block; }
+    text-transform: capitalize;
+    margin: 5px; }
   li .checkboxdiv {
     padding: 5px;
-    background-color: violet;
-    display: inline-block; }
+    align-self: flex-start; }
   li .deletediv {
     padding: 5px;
-    background-color: green;
-    display: inline-block; }
+    align-self: flex-start; }
+  li .delete {
+    height: 20px;
+    width: 20px; }
+  li .list-text {
+    flex: 1 1 auto; }
