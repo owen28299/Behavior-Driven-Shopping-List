@@ -19,7 +19,7 @@ function ShoppingListItem(name, description){
         "<h3 class=\"list-name\">" + this.name + "</h3>" +
         "<p class=\"list-description\">" + this.description + "</p>" +
         "</div>" +
-        "<div class=\"deletediv\"><input type=image src=\"../img/trash.png\" class=\"delete\" data-index=\"" + index +"\">" + "</div>" +
+        "<div class=\"deletediv\"><input type=image src=\"../img/trash.svg\" class=\"delete\" data-index=\"" + index +"\">" + "</div>" +
       "</li>";
 
       return output;

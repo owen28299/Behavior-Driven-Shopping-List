@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Cabin);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -43,54 +43,80 @@ table {
   border-spacing: 0; }
 
 body {
-  background-color: lightblue; }
+  background: url("../img/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Cabin", sans-serif;
+  color: #001a02; }
 
 header {
   padding: 30px; }
   header h1 {
-    font-family: 'Lobster';
     text-align: center;
-    color: purple;
-    border: 1px solid blue;
+    color: #0a7613;
     padding: 20px;
-    transition: all 1s ease; }
-    header h1:hover {
-      color: #235e71;
-      background-color: lightblue; }
+    font-size: 36px;
+    background: linear-gradient(rgba(255, 250, 204, 0.5), rgba(255, 250, 204, 0.5));
+    box-shadow: 3px 3px 3px #404040; }
     @media only screen and (min-width: 500px) {
       header h1 {
         font-size: 40px; } }
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 900px) {
       header h1 {
-        font-size: 60px; } }
+        font-size: 54px; } }
 
-form {
-  background-color: purple;
-  text-align: right;
-  max-width: 260px;
-  margin: auto; }
-  form .form-title {
-    background-color: green; }
-  form .form-description {
-    background-color: yellow; }
+#mainform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  @media only screen and (min-width: 500px) {
+    #mainform {
+      flex-direction: row; } }
+  #mainform .form-title {
+    padding: 10px;
+    background: linear-gradient(rgba(255, 250, 204, 0.5), rgba(255, 250, 204, 0.5));
+    box-shadow: 0px 3px 3px #404040; }
+  #mainform .form-description {
+    padding: 10px;
+    background: linear-gradient(rgba(255, 250, 204, 0.5), rgba(255, 250, 204, 0.5));
+    box-shadow: 0px 3px 3px #404040; }
+  #mainform input {
+    border: solid 1px #113b15; }
+    #mainform input:focus {
+      outline: none;
+      background-color: #f7fdf8;
+      border: solid 1px #0a7613; }
 
 button {
-  display: block; }
+  display: block;
+  font-family: "Cabin", sans-serif;
+  font-weight: bold;
+  color: #0a7613;
+  background: linear-gradient(white, #bfbfbf);
+  padding: 15px;
+  border-radius: 50%;
+  border: 1px solid #404040;
+  transition: all 0.2s ease;
+  box-shadow: 3px 3px 3px #404040; }
   button#add_shopping_list_item_button {
     margin: auto; }
+  button:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px #404040; }
 
 ul {
   text-align: center;
+  margin: auto;
   max-width: 400px;
-  background-color: white;
-  margin: auto; }
+  background: linear-gradient(rgba(255, 250, 204, 0.6), #fffacc);
+  box-shadow: 3px 3px 3px #404040; }
 
 li {
   display: flex;
-  margin: 10px;
-  text-align: left; }
+  text-align: left;
+  padding: 5px; }
   li.completed_true {
-    background-color: lightgreen; }
+    background-color: #ace7b1; }
   li .list-name {
     text-transform: capitalize;
     margin: 5px; }
@@ -100,6 +126,8 @@ li {
   li .checkboxdiv {
     padding: 5px;
     align-self: flex-start; }
+  li .checkbox:focus {
+    outline: none; }
   li .deletediv {
     padding: 5px;
     align-self: flex-start; }
@@ -107,4 +135,11 @@ li {
     height: 20px;
     width: 20px; }
   li .list-text {
-    flex: 1 1 auto; }
+    flex: 1 1 50%; }
+  li h3 {
+    font-size: 16px;
+    padding-bottom: 10px; }
+  li p {
+    color: #79867a;
+    word-wrap: break-word;
+    max-width: 300px; }

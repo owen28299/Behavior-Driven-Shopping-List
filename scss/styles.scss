@@ -1,5 +1,5 @@
 @import "partials/_reset.scss";
-@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Cabin);
 //or you could have just written partials/reset
 
 //general styles
@@ -7,7 +7,7 @@
 //media breakpoint mixin
 $breakpoints: (
   'medium': 500px,
-  'large':  800px
+  'large':  900px
 ) !default;
 
 @mixin respond-to($breakpoint) {
@@ -22,10 +22,36 @@ $breakpoints: (
   }
 }
 
-$primary-color: lightblue;
+$colorindex1: 125;
+
+$bckcolor: hsl($colorindex1,0%, 100%);
+$bckcolordark: hsl($colorindex1, 0%, 75%);
+$basecolor: hsl($colorindex1, 85%, 25%);
+$lightcolor: hsl($colorindex1, 55%, 79%);
+$medcolor: hsl($colorindex1, 85%, 75%);
+$darkcolor: hsl($colorindex1, 55%, 15%);
+$meddarkcolor: hsl($colorindex1, 85%, 55%);
+$fontcolor: hsl($colorindex1, 100%, 5%);
+$greycolor: hsl($colorindex1, 5%, 50%);
+$formbgcolor: hsl($colorindex1, 55%, 98%);
+$shadowcolor: hsl($colorindex1, 0%, 25%);
+
+$colorindex2: 54;
+
+$fieldcolor1: hsla($colorindex2,100%, 90%, 0.5);
+$fieldcolor2: hsla($colorindex2,100%, 90%, 0.5);
+
+$fieldcolor1-ul: hsla($colorindex2,100%, 90%, 0.6);
+$fieldcolor2-ul: hsla($colorindex2,100%, 90%, 1);
+
+$fontmain: 'Cabin', sans-serif;
 
 body {
-  background-color: $primary-color;
+  background: url("../img/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: $fontmain;
+  color: $fontcolor;
+
 }
 
 header {
@@ -34,24 +60,21 @@ header {
 
 
   h1 {
-    font-family: 'Lobster';
-    text-align: center;
-    color: purple;
-    border: 1px solid blue;
-    padding: 20px;
-    transition: all 1s ease;
 
-    &:hover {
-      color: darken($primary-color,50%);
-      background-color: lightblue;
-    }
+    text-align: center;
+    color: $basecolor;
+    padding: 20px;
+    font-size: 36px;
+    background: linear-gradient($fieldcolor1, $fieldcolor2);
+    box-shadow: 3px 3px 3px $shadowcolor;
+
 
     @include respond-to('medium') {
       font-size: 40px;
     }
 
     @include respond-to('large') {
-      font-size: 60px;
+      font-size: 54px;
     }
 
   }
@@ -59,51 +82,92 @@ header {
 
 }
 
-form {
 
-  background-color: purple;
-  text-align: right;
-  max-width: 260px;
-  margin: auto;
+#mainform{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+
+  @include respond-to('medium') {
+    flex-direction: row;
+  }
+
 
   .form-title {
-    background-color: green;
+    padding: 10px;
+    background: linear-gradient($fieldcolor1, $fieldcolor2);
+    box-shadow: 0px 3px 3px $shadowcolor;
   }
 
   .form-description {
-    background-color: yellow;
+    padding: 10px;
+    background: linear-gradient($fieldcolor1, $fieldcolor2);
+    box-shadow: 0px 3px 3px $shadowcolor;
   }
+
+  input {
+    border: solid 1px $darkcolor;
+
+    &:focus{
+      outline: none;
+      background-color: $formbgcolor;
+      border: solid 1px $basecolor;
+    }
+  }
+
+
+
 }
 
 button {
   display: block;
+  font-family: $fontmain;
+  font-weight: bold;
+  color: $basecolor;
+  background: linear-gradient($bckcolor, $bckcolordark);
+  padding: 15px;
+  border-radius: 50%;
+  border: 1px solid $shadowcolor;
+  transition: all 0.2s ease;
+  box-shadow: 3px 3px 3px $shadowcolor;
+
 
   &#add_shopping_list_item_button {
     margin: auto;
   }
+
+  &:focus{
+    outline: none;
+    box-shadow: 0px 0px 0px $shadowcolor;
+  }
+
+
 }
 
 ul {
   text-align: center;
-  max-width: 400px;
-  background-color: white;
   margin: auto;
+  max-width: 400px;
+  background: linear-gradient($fieldcolor1-ul, $fieldcolor2-ul);
+  box-shadow: 3px 3px 3px $shadowcolor;
+
 }
 
 li {
 
   display: flex;
-
-
-  margin: 10px;
   text-align: left;
+  padding: 5px;
+
 
   &.completed_true {
-    background-color: lightgreen;
+    background-color: $lightcolor;
   }
 
   .list-name {
-
     text-transform: capitalize;
     margin: 5px;
   }
@@ -116,13 +180,17 @@ li {
 
   .checkboxdiv {
     padding: 5px;
-
     align-self: flex-start;
+  }
+
+  .checkbox {
+    &:focus {
+      outline: none;
+    }
   }
 
   .deletediv {
     padding: 5px;
-
     align-self: flex-start;
   }
 
@@ -132,8 +200,19 @@ li {
   }
 
   .list-text {
+    flex: 1 1 50%;
+  }
 
-    flex: 1 1 auto;
+  h3 {
+    font-size: 16px;
+    padding-bottom: 10px;
+  }
+
+  p {
+    color: $greycolor;
+    word-wrap: break-word;
+    max-width: 300px;
+
   }
 
 }
